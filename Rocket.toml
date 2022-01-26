@@ -1,0 +1,11 @@
+[production]
+address = "0.0.0.0"
+port = 8000
+#workers = 1
+keep_alive = 5
+read_timeout = 5
+write_timeout = 5
+log = "critical"
+#SOME_SUPER_SECRET_KEY_WHICH_SHOULD_NOT_BE_HERE
+#secret_key = "gcT1Ru3AeYyDsuRgBpL+MKEP2y/5s6tOXmTZZFhn/f0="
+limits = { forms = 32768 }
