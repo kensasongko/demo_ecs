@@ -39,10 +39,14 @@ env:
   ECS_TASK_DEFINITION: "task-definition.json"
   CONTAINER_NAME: "api"
 
+permissions:
+      id-token: write
+      contents: read    # This is required for actions/checkout@v2
+
 jobs:
   deploy:
     name: Deploy
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     environment: production
 
     steps:
