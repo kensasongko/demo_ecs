@@ -59,7 +59,7 @@ jobs:
     - name: configure aws credentials
       uses: aws-actions/configure-aws-credentials@master
       with:
-        role-to-assume: arn:aws:iam::933547176900:role/ApiEcsDeployRoleStack-apiecrdeployrole62E6D758-F63T0BXHVV0X
+        role-to-assume: arn:aws:iam::933547176900:role/ApiEcsDeployRoleStack-apiecrdeployrole62E6D758-1CJYK2P205817
         role-session-name: ecsdeploysession
         aws-region: ${{ env.AWS_REGION }}
 
