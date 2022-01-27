@@ -8,7 +8,7 @@ use crate::cors::{AllowedHeaders, AllOrSome, CorsOptions};
 
 #[get("/")]
 fn cors<'a>() -> &'a str {
-    "{\"message\": \"Hello from Rocket!\"}"
+    "{\"message\": \"Hello from Rocket! v2\"}"
 }
 
 
