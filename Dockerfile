@@ -14,7 +14,7 @@ ENV UID=10001
 RUN adduser \
     --disabled-password \
     --gecos "" \
-    --home "/nonexistent" \
+    --home "/api" \
     --shell "/sbin/nologin" \
     --no-create-home \
     --uid "${UID}" \
@@ -42,6 +42,7 @@ WORKDIR /api
 
 # Copy our build
 COPY --from=builder /api/target/x86_64-unknown-linux-musl/release/api ./
+COPY --from=builder /api/Rocket.toml ./
 
 # Use an unprivileged user.
 USER rustuser:rustuser
