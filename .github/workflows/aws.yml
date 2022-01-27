@@ -36,7 +36,7 @@ env:
   #ECR_REPOSITORY: "arn:aws:ecr:ap-southeast-1:933547176900:repository/cdk-hnb659fds-container-assets-933547176900-ap-southeast-1"
   #ECS_SERVICE: "arn:aws:ecs:ap-southeast-1:933547176900:service/api-cluster/ApiEcsStack-ApiEcsServiceF5BA3E50-eGYgMm5whEjp"
   #ECS_CLUSTER: "arn:aws:ecs:ap-southeast-1:933547176900:cluster/api-cluster"
-  ECR_REPOSITORY: "933547176900.dkr.ecr.ap-southeast-1.amazonaws.com/cdk-hnb659fds-container-assets-933547176900-ap-southeast-1"
+  ECR_REPOSITORY: "cdk-hnb659fds-container-assets-933547176900-ap-southeast-1"
   ECS_SERVICE: "ApiEcsStack-ApiEcsServiceF5BA3E50-eGYgMm5whEjp"
   ECS_CLUSTER: "api-cluster"
   ECS_TASK_DEFINITION: "task-definition.json"
