@@ -47,7 +47,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: self-hosted
-    environment: production
+    #    environment: production
 
     steps:
     - name: Checkout
@@ -57,7 +57,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@master
       with:
         role-to-assume: arn:aws:iam::933547176900:role/ApiEcsDeployRoleStack-apiecrdeployrole62E6D758-F63T0BXHVV0X
-        role-session-name: ecsDeploySession
+        role-session-name: ecsdeploysession
         aws-region: ${{ env.AWS_REGION }}
 
     - name: Login to Amazon ECR
