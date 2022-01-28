@@ -1,6 +1,6 @@
 #[macro_use] extern crate rocket;
 
-use rocket::response::{content, status};
+//use rocket::response::{content, status};
 use rocket::http::{Status, ContentType};
 
 #[get("/")]
