@@ -1,36 +1,25 @@
-#![feature(proc_macro_hygiene, decl_macro)]
+#[macro_use] extern crate rocket;
 
-use std::str::FromStr;
+use rocket::response::{content, status};
+use rocket::http::{Status, ContentType};
 
-use rocket::{get, routes};
-use rocket_cors as cors;
-use crate::cors::{AllowedHeaders, AllOrSome, CorsOptions};
-
-#[get("/")]
-fn cors<'a>() -> &'a str {
-    "{\"message\": \"Hello from Rocket! v2\"}"
+#[get("/index")]
+fn index() -> &'static str {
+    "Hello, world!"
 }
 
+#[derive(Responder)]
+#[response(status = 418, content_type = "json")]
+struct RawTeapotJson(&'static str);
 
-fn main() {
-    let cors = CorsOptions {
-        allowed_origins: AllOrSome::All,
-        allowed_methods: ["Get"]
-           .iter()
-           .map(|s| FromStr::from_str(s).unwrap())
-           .collect(),
-        allowed_headers: AllowedHeaders::all(),
-        allow_credentials: false,
-        expose_headers: ["Content-Type", "application/json"]
-            .iter()
-            .map(ToString::to_string)
-            .collect(),
-        ..Default::default()
-    }
-    .to_cors();
+#[get("/json")]
+fn json() -> (Status, (ContentType, &'static str)) {
+    (Status::ImATeapot, (ContentType::JSON, "{ \"Hello\": \"world! v3\" }"))
+}
 
-    rocket::ignite()
-        .mount("/", routes![cors])
-        .manage(cors)
-        .launch();
+#[launch]
+fn rocket() -> _ {
+    rocket::build()
+        .mount("/", routes![index])
+        .mount("/", routes![json])
 }
