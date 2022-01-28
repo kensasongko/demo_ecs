@@ -3,7 +3,7 @@
 use rocket::response::{content, status};
 use rocket::http::{Status, ContentType};
 
-#[get("/index")]
+#[get("/")]
 fn index() -> &'static str {
     "Hello, world!"
 }
